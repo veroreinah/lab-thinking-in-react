@@ -1,16 +1,14 @@
 import React from 'react';
-import ProductCategoryRow from './ProductCategoryRow';
-import ProductRow from './ProductRow';
+import { ProductCategoryRow } from './ProductCategoryRow';
+import { ProductRow } from './ProductRow';
 
-function ProductTable({ products }) {
-  const p = products.map((e, i) => <ProductRow key={i} product={e}/>)
+export const ProductTable = ({ products }) => {
+  const p = products.map((e, i) => <ProductRow key={i} {...e}/>)
 
   return (
     <div>
-      <ProductCategoryRow category={products[0].category} />
+      <ProductCategoryRow>{products[0].category}</ProductCategoryRow>
       {p}
     </div>
   );
 }
-
-export default ProductTable;

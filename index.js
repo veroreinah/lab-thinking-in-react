@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import FilterableProductTable from './src/FilterableProductTable';
+import { FilterableProductTable } from './src/FilterableProductTable';
 
 ReactDOM.render(
     <FilterableProductTable/>,

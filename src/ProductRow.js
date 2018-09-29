@@ -1,11 +1,18 @@
 import React from 'react';
 
-function ProductRow({ product }) {
+export const ProductRow = ({ name, price, stocked }) => {
+  let style = {
+    color: 'black'
+  };
+  if (!stocked) {
+    style = {
+      color: 'red'
+    };
+  }
+
   return (
     <div>
-      {product.name} | {product.price}
+      <span style={style}>{name}</span> - {price}
     </div>
   );
 }
-
-export default ProductRow;

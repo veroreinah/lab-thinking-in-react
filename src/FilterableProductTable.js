@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import ProductTable from './ProductTable';
+import { ProductTable } from './ProductTable';
 import data from '../data';
 
-class FilterableProductTable extends Component {
+export class FilterableProductTable extends Component {
   render() {
+    // Otra opción: utilizar groupBy de Lodash
+    // https://lodash.com/docs/4.17.10#groupBy
     const categories = [];
     const products = [];
     data.forEach(element => {
@@ -16,8 +18,6 @@ class FilterableProductTable extends Component {
       products[index] = data.filter(e => e.category === category);
     });
 
-    const productsTable = products.map((e, i) => <ProductTable key={i} products={e}/>)
-
     return (
       <div>
         <div>
@@ -29,10 +29,8 @@ class FilterableProductTable extends Component {
         </div>
         <hr/>
 
-        {productsTable}
+        { products.map((e, i) => <ProductTable key={i} products={e}/>) }
       </div>
     );
   }
 }
-
-export default FilterableProductTable;
